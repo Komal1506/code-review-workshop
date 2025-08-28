@@ -4,6 +4,8 @@ name: Python CI
 on:
   pull_request:
     branches: [ main ]
+  push:
+    branches: [ main ]  # Optional: Run CI on push to main too
 
 jobs:
   build:
@@ -24,4 +26,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -q --tb=short
+          PYTHONPATH=src pytest -q --tb=short
