@@ -1,12 +1,12 @@
 import sys
 import os
 
-# E402 fix: Keep all imports at the top
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Avoid E501: break long line manually if needed
+parent_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, parent_path)
 
-from src.mathops import multiply
+from src.mathops import multiply  # noqa: E402
 
 
-# E302 fix: Add two blank lines before function
 def test_multiply_basic():
     assert multiply(4, 5) == 20
